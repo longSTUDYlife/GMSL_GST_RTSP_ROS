@@ -1,0 +1,25 @@
+<launch>
+    <!-- 启动第一个节点 -->
+    <node name="rtsp_to_ros_camera0" pkg="rtsp_to_ros" type="rtsp_to_ros" output="screen">
+        <param name="pipeline" value="rtspsrc location=rtsp://10.101.25.27:8554/camera0 latency=0 ! rtph264depay ! h264parse config-interval=-1 ! nvv4l2decoder enable-max-performance=true disable-dpb=true ! nvvidconv ! video/x-raw,format=BGRx,width=1920,height=1536 ! videoconvert ! appsink sync=false" />
+        <param name="topic" value="camera0/image" />
+    </node>
+
+    <!-- 启动第二个节点 -->
+    <!-- <node name="rtsp_to_ros_camera1" pkg="rtsp_to_ros" type="rtsp_to_ros" output="screen">
+        <param name="pipeline" value="rtspsrc location=rtsp://10.101.25.27:8554/camera1 latency=0 ! capsfilter caps='application/x-rtp,media=video,encoding-name=H264' ! rtph264depay ! h264parse ! decodebin ! nvvidconv ! video/x-raw,format=BGRx,width=1920,height=1536 ! videoconvert ! appsink sync=false" />
+        <param name="topic" value="camera1/image" />
+    </node> -->
+
+    <!-- 启动第三个节点 -->
+    <!-- <node name="rtsp_to_ros_camera2" pkg="rtsp_to_ros" type="rtsp_to_ros" output="screen">
+        <param name="pipeline" value="rtspsrc location=rtsp://10.101.25.27:8554/camera2 latency=0 ! capsfilter caps='application/x-rtp,media=video,encoding-name=H264' ! rtph264depay ! h264parse ! decodebin ! nvvidconv ! video/x-raw,format=BGRx,width=1920,height=1536 ! videoconvert ! appsink sync=false" />
+        <param name="topic" value="camera2/image" />
+    </node> -->
+
+    <!-- 启动第四个节点 -->
+    <!-- <node name="rtsp_to_ros_camera3" pkg="rtsp_to_ros" type="rtsp_to_ros" output="screen">
+        <param name="pipeline" value="rtspsrc location=rtsp://10.101.25.27:8554/camera3 latency=0 ! capsfilter caps='application/x-rtp,media=video,encoding-name=H264' ! rtph264depay ! h264parse ! decodebin ! nvvidconv ! video/x-raw,format=BGRx,width=1920,height=1536 ! videoconvert ! appsink sync=false" />
+        <param name="topic" value="camera3/image" />
+    </node> -->
+</launch>
