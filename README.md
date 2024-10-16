@@ -25,6 +25,12 @@ This code depends on several libraries:
 
 ### Installing Dependencies
 
+#### Docker Command
+```
+xhost +local:root
+sudo docker run --name gstream-rtsp -itd --log-opt max-size=50m --runtime nvidia --privileged --device /dev/video0 --device /dev/video1 --device /dev/video2 --device /dev/video3 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" -v /home/nvidia/yangjianbing:/root/code -p 3810:22 -p 8554:8554 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --restart=always nvcr.io/nvidia-l4t-jetpack-r35.4.1:v1.6
+``` 
+`-p 8554:8554`: Map RTSP service port
 #### Ubuntu/Debian
 
 You can install the required libraries on Ubuntu/Debian systems using the following commands:
@@ -39,7 +45,7 @@ sudo apt-get install gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-p
 ```
 mkdir build
 cd build
-.. cmake
+cmake ..
 make
 ```
 #### Run
