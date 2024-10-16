@@ -8,6 +8,7 @@ This file launches four ros nodes to get streams from RTSP server and convert th
     </node>
 ```
 `pipeline`: Alternate **10.101.25.27:8554** with the **IP:port of RTSP server**
+
 `topic`: This will be the name of output ROS topic
 ## Outputs
 ![alt text](<Peek 2024-09-02 10-02.gif>)
