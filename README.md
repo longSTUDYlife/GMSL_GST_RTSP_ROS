@@ -1,4 +1,4 @@
-# GMSL_GST_RTSP_ROS
+# GST_RTSP2ROS
 ## four_cam.launch
 This file launches four ROS nodes to get streams from RTSP server and convert the video into ROS topics. Take one of nodes as an example and others are similar.
 ```
